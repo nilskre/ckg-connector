@@ -10,5 +10,12 @@ data/mappings/*
 data/ontologies/*
 data/output/*
 
+!data/input/.gitkeep
+!data/mappings/.gitkeep
+!data/mappings/statistics/.gitkeep
+!data/ontologies/.gitkeep
+!data/output/.gitkeep
+!data/output/statistics/.gitkeep
+
 # test coverage
 .coverage

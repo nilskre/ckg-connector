@@ -21,7 +21,9 @@ class DatasetInterface:
     def get_binary_coded_subpart_codes_per_record(
         self, subpart: str
     ) -> pd.DataFrame:
-        """Returns a subset of the dataset containing icd codes."""
+        """Returns a subset of the dataset containing the
+        subpart columns (e.g. ICD or OPS)."""
+        # returns a dataframe with the following structure:
         # patient_id, icd_x, icd_y, ...
         # binary coding yes 1 no 0
         pass

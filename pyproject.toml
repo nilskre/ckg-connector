@@ -14,13 +14,13 @@ matplotlib = "^3.6.2"
 jupyterlab = "^3.5.0"
 openpyxl = "^3.0.10"
 obonet = "^0.3.1"
-coverage = "^7.0.5"
 
 [tool.poetry.group.dev.dependencies]
 black = "^22.10.0"
 isort = "^5.10.1"
 flake8 = "^6.0.0"
 pre-commit = "^2.20.0"
+coverage = "^7.0.5"
 
 [tool.black]
 line-length = 79

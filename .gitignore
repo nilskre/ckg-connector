@@ -1,0 +1,14 @@
+# IntelliJ files
+.idea/*
+
+# Python
+__pycache__/
+
+# part of data folder content
+data/input/*
+data/mappings/*
+data/ontologies/*
+data/output/*
+
+# test coverage
+.coverage

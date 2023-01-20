@@ -8,18 +8,19 @@ Supervisor: Prof. Dr. Gertz
 Semester: Winter semester 2022/23
 
 ## Features
-- Open Closed principle: Only one custom dataset class needs to be added, to add a new dataset. All other project files do not need to be adapted.
-- Generate mapping from ICD to DOID (Disorder Ontology, used by the CKG)
-- Transformation ICD to DOID
-- Transformation OPS to Snomed CT
-- Transformation of manually defined mappings
-- Mapping and Transformation statistics
-- Generate CKG input files (with DOID, Snomed CT and manually defined mappings)
+- **Open Closed principle**: Only one custom dataset class needs to be added, to add a new dataset. All other project files do not need to be adapted.
+- **Generate mapping from ICD to DOID** (Disorder Ontology, used by the CKG)
+- **Transformation ICD to DOID**
+- **Transformation OPS to Snomed CT**
+- **Transformation of manually defined mappings**
+- **Mapping and Transformation statistics**
+- **Generate CKG input files** (with DOID, Snomed CT and manually defined mappings)
 
 ## Setup
-tbd
 
-## Run
+For using this project a Python environment with the necessary packages is required. The easiest way is to install [Poetry](https://python-poetry.org/) and then run ```poetry install``` in the project root directory. For details how to use poetry see [here](https://github.com/nilskre/ckg-connector#environment).
+
+## Usage
 
 ### Setting
 
@@ -38,12 +39,18 @@ dataset -> **custom dataset class** -> standardized intermediate form -> build m
 
 ### Workflow
 
-1. Create own custom dataset class, which inherits from [dataset.py](./ckg_connector/dataset.py) and implements the abstract methods. As an example, see [synthetic_dataset.py](./ckg_connector/dataset/synthetic_dataset.py).
-2. Create data folder:  
-tbd: describe content of data folder
+1. **Create own custom dataset class**, which inherits from [dataset.py](./ckg_connector/dataset/dataset.py) and implements the abstract methods. As an example, see [synthetic_dataset.py](./ckg_connector/dataset/synthetic_dataset.py).
+2. Create data folder: The structure of the data folder should look like this:
+   - input: Contains the dataset. Here you need to **insert your dataset file**.
+   - mappings: Contains the mappings and the mapping statistics. The mappings are downloaded or built automatically. If you want to specifiy **custom mappings** you can put them in a file called manual.csv. You can use the [manual_template.csv](./ckg_connector/data/mappings/manual_template.csv) as a template.
+   - ontologies: Here the downloaded ontologies are stored. The ontologies are downloaded automatically.
+   - output: Here the CKG output files are stored (clinical_data.csv). As well as the statistics of the transformation process.
+   - templates: Contains the templates for the CKG input files.
+
+[![data folder structure](./docs/structure_data_folder.png)](./docs/structure_data_folder.png)
 
 3. Run the project:
-   - If your data folder located in [./data](./data): ```python ckg_connector/main.py```
+   - If your data folder is located in [./data](./data): ```python ckg_connector/main.py```
    - If your data folder is located elsewhere: ```python ckg_connector/main.py --datadir <absolute path to the data folder>```
 
 ## Development

@@ -13,6 +13,7 @@ data/output/*
 !data/input/.gitkeep
 !data/mappings/.gitkeep
 !data/mappings/statistics/.gitkeep
+!data/mappings/manual_template.csv
 !data/ontologies/.gitkeep
 !data/output/.gitkeep
 !data/output/statistics/.gitkeep

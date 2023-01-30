@@ -69,7 +69,7 @@ Helpful commands:
 ### Testing
 
 - Run all unit tests: ```python -m unittest discover```
-- For mesuring test coverage run: ```coverage run -m unittest discover``` and ```coverage report```. To view an html version with the code coverage run ```coverage html``` and open the file ```htmlcov/index.html```.
+- For measuring test coverage run: ```coverage run -m unittest discover``` and ```coverage report```. To view an html version with the code coverage run ```coverage html``` and open the file ```htmlcov/index.html```.
 
 ### Code quality
 

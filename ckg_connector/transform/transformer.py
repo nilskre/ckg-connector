@@ -23,13 +23,25 @@ def convert_dataset_to_ckg_input(
         ckg_clinical_template, dataset, transform_analytics
     )
     ckg_clinical_disease = convert_icd_columns(
-        ckg_clinical_with_id, dataset, transform_analytics
+        ckg_clinical_with_id,
+        dataset,
+        transform_analytics,
+        pd.read_csv(
+            get_project_root_dir() + "/data/mappings/icd_to_doid.csv",
+            keep_default_na=False,
+        ),
     )
     ckg_clinical_manual = convert_columns_with_manual_mapping(
         ckg_clinical_disease, dataset, transform_analytics
     )
     ckg_clinical_ops = convert_ops_columns(
-        ckg_clinical_manual, dataset, transform_analytics
+        ckg_clinical_manual,
+        dataset,
+        transform_analytics,
+        pd.read_csv(
+            get_project_root_dir() + "/data/mappings/OPS_Snomed_map.csv",
+            keep_default_na=False,
+        ),
     )
 
     return ckg_clinical_ops, transform_analytics

@@ -9,10 +9,7 @@ def convert_ops_columns(
     ckg_clinical_template: pd.DataFrame,
     dataset: DatasetInterface,
     transform_analytics: pd.DataFrame,
-    mapping_ops_snomed=pd.read_csv(
-        get_project_root_dir() + "/data/mappings/OPS_Snomed_map.csv",
-        keep_default_na=False,
-    ),
+    mapping_ops_snomed: pd.DataFrame,
 ) -> pd.DataFrame:
     patient_id_and_ops = dataset.get_binary_coded_subpart_codes_per_record(
         "ops"

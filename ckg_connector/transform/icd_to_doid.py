@@ -2,19 +2,14 @@ import pandas as pd
 
 from ckg_connector.dataset.dataset import DatasetInterface
 from ckg_connector.transform.utils import replace_ones_with_col_name
-from path_helper import get_project_root_dir
 
 
 def convert_icd_columns(
     ckg_input: pd.DataFrame,
     dataset: DatasetInterface,
     transform_analytics: pd.DataFrame,
-    mapping_icd_doid=pd.read_csv(
-        get_project_root_dir() + "/data/mappings/icd_to_doid.csv",
-        keep_default_na=False,
-    ),
+    mapping_icd_doid: pd.DataFrame,
 ) -> pd.DataFrame:
-
     patient_id_and_icd = dataset.get_binary_coded_subpart_codes_per_record(
         "icd"
     )
